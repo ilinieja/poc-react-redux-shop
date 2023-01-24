@@ -1,12 +1,5 @@
-interface Rule {
-  quantity: number;
-  price: number;
-}
-
-interface Product {
-  id: string;
-  price: number;
-}
+import { Product } from "./interfaces/product.interface";
+import { Rule } from "./interfaces/rule.interface";
 
 /**
  * Map of product ids to rules for quick lookup,
@@ -29,8 +22,8 @@ interface Products {
 }
 
 export const RULES: Rules = {
-  A: { quantity: 3, price: 130 },
-  B: { quantity: 2, price: 45 },
+  A: { productId: "A", quantity: 3, price: 130 },
+  B: { productId: "B", quantity: 2, price: 45 },
 };
 
 export const PRODUCTS: Products = {
