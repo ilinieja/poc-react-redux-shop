@@ -1,19 +1,52 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
 import "./index.css";
-import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { Provider } from "react-redux";
+import { Provider as StoreProvider } from "react-redux";
 import { store } from "./store/store";
+
+import Root from "./pages/root/Root";
+import Shop from "./pages/shop/Shop";
+import Cart from "./pages/cart/Cart";
+import About from "./pages/about/About";
+import Admin from "./pages/admin/Admin";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Root />,
+    errorElement: <>No such page</>,
+    children: [
+      {
+        path: "shop",
+        element: <Shop />,
+      },
+      {
+        path: "cart",
+        element: <Cart />,
+      },
+      {
+        path: "about",
+        element: <About />,
+      },
+    ],
+  },
+  {
+    path: "admin",
+    element: <Admin />,
+  },
+]);
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
+    <StoreProvider store={store}>
+      <RouterProvider router={router} />
+    </StoreProvider>
   </React.StrictMode>
 );
 

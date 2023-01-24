@@ -11,5 +11,4 @@ export const allRules = rulesSelectors.selectAll(store.getState());
 const productsSelectors = productsAdapter.getSelectors<RootState>(
   (state) => state.products
 );
-
 export const allProducts = productsSelectors.selectAll(store.getState());
