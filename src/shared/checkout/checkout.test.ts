@@ -1,6 +1,6 @@
 import { checkout, RULES } from "./checkout";
 
-const cases = [
+const cases: [string, number][] = [
   ["", 0],
   ["A", 50],
   ["AB", 80],
