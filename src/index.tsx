@@ -7,11 +7,11 @@ import reportWebVitals from "./reportWebVitals";
 import { Provider as StoreProvider } from "react-redux";
 import { store } from "./store/store";
 
-import Root from "./pages/root/Root";
-import Shop from "./pages/shop/Shop";
-import Cart from "./pages/cart/Cart";
-import About from "./pages/about/About";
-import Admin from "./pages/admin/Admin";
+import { Root } from "./pages/root/Root";
+import { Shop } from "./pages/shop/Shop";
+import { Cart } from "./pages/cart/Cart";
+import { About } from "./pages/about/About";
+import { Admin } from "./pages/admin/Admin";
 
 const router = createBrowserRouter([
   {

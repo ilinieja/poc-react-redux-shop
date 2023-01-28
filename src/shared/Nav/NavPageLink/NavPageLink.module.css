@@ -1,0 +1,25 @@
+@import "vars.css";
+
+.link {
+    text-decoration: none;
+    color: var(--color-dark);
+    font-size: 1.2rem;
+    position: relative;
+}
+
+.link::after {
+    content: "";
+    width: 100%;
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    height: 2px;
+    background-color: var(--color-dark);
+    opacity: 0;
+    transition: opacity 0.4s;
+}
+
+.link:hover::after,
+.activeLink::after {
+    opacity: 1;
+}
