@@ -1,5 +1,7 @@
+import { EntityId } from "@reduxjs/toolkit";
+
 export interface Product {
-  id: string;
+  id: EntityId;
   price: number;
   description?: string;
 }

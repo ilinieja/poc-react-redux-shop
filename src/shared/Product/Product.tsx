@@ -9,6 +9,7 @@ import {
 
 import styles from "./Product.module.css";
 import { ProductActions } from "./ProductActions/ProductActions";
+import { ProductAdminActions } from "./ProductAdminActions/ProductAdminActions";
 
 export interface ProductProps {
   productId: EntityId;
@@ -16,7 +17,7 @@ export interface ProductProps {
   isAdmin?: boolean;
 }
 
-export function Product({ className, productId }: ProductProps) {
+export function Product({ className, productId, isAdmin }: ProductProps) {
   const product = useSelector(selectProductById(productId));
   const rule = useSelector(selectRuleById(productId));
   const cartProduct = useSelector(selectCartProductById(productId));
@@ -36,11 +37,18 @@ export function Product({ className, productId }: ProductProps) {
         </span>
       </div>
       <span className={styles.text}>{product.description ?? ""}</span>
-      <ProductActions
-        productId={productId}
-        price={product.price}
-        quantity={cartProduct?.quantity ?? 0}
-      ></ProductActions>
+      {isAdmin ? (
+        <ProductAdminActions
+          productId={productId}
+          price={product.price}
+        ></ProductAdminActions>
+      ) : (
+        <ProductActions
+          productId={productId}
+          price={product.price}
+          quantity={cartProduct?.quantity ?? 0}
+        ></ProductActions>
+      )}
     </div>
   );
 }

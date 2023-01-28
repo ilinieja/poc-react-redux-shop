@@ -22,8 +22,8 @@ export function Nav({ className }: NavProps) {
         <NavPageLink className={styles.link} to="/cart">
           Cart
         </NavPageLink>
-        <NavPageLink className={styles.link} to="/about">
-          About
+        <NavPageLink className={styles.link} to="/admin">
+          Admin
         </NavPageLink>
       </div>
     </nav>
