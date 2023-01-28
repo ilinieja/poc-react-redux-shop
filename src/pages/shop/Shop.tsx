@@ -1,17 +1,9 @@
 import { useSelector } from "react-redux";
-import { Product } from "shared/Product/Product";
+import { ProductsListing } from "shared/ProductsListing/ProductsListing";
 import { productsSelectors } from "store/selectors";
 
-import styles from "./Shop.module.css";
-
 export function Shop() {
-  const productIds = useSelector(productsSelectors.selectIds);
-
   return (
-    <div className={styles.container}>
-      {productIds.map((productId) => (
-        <Product key={productId} productId={productId} />
-      ))}
-    </div>
+    <ProductsListing productIds={useSelector(productsSelectors.selectIds)} />
   );
 }
