@@ -21,8 +21,5 @@ export const productsSlice = createSlice({
   reducers: {
     productAdded: productsAdapter.addOne,
     productRemoved: productsAdapter.removeOne,
-    productsReceived(state, action) {
-      productsAdapter.setAll(state, action.payload.products);
-    },
   },
 });

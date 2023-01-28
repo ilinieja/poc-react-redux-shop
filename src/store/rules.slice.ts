@@ -20,8 +20,5 @@ export const rulesSlice = createSlice({
   reducers: {
     ruleAdded: rulesAdapter.addOne,
     ruleRemoved: rulesAdapter.removeOne,
-    rulesReceived(state, action) {
-      rulesAdapter.setAll(state, action.payload.rules);
-    },
   },
 });
