@@ -1,0 +1,14 @@
+@import "vars.css";
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+}
+
+.title {
+    font-size: 2rem;
+    font-weight: inherit;
+    margin: 0 0 0.5rem 0;
+}

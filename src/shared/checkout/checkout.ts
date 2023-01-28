@@ -1,5 +1,5 @@
-import { Product } from "./interfaces/product.interface";
-import { Rule } from "./interfaces/rule.interface";
+import { Product } from "shared/interfaces/product.interface";
+import { Rule } from "shared/interfaces/rule.interface";
 
 /**
  * Map of product ids to rules for quick lookup,
