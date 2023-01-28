@@ -1,4 +1,6 @@
+import { EntityId } from "@reduxjs/toolkit";
+
 export interface CartProduct {
-  productId: string;
+  productId: EntityId;
   quantity: number;
 }

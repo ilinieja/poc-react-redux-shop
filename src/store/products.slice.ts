@@ -20,6 +20,10 @@ export const productsSlice = createSlice({
   initialState: prepopulatedState,
   reducers: {
     productAdded: productsAdapter.addOne,
+    productUpdated: productsAdapter.updateOne,
     productRemoved: productsAdapter.removeOne,
   },
 });
+
+export const { productAdded, productUpdated, productRemoved } =
+  productsSlice.actions;

@@ -10,7 +10,6 @@ import { store } from "./store/store";
 import { Root } from "./pages/root/Root";
 import { Shop } from "./pages/shop/Shop";
 import { Cart } from "./pages/cart/Cart";
-import { About } from "./pages/about/About";
 import { Admin } from "./pages/admin/Admin";
 
 const router = createBrowserRouter([
@@ -28,14 +27,10 @@ const router = createBrowserRouter([
         element: <Cart />,
       },
       {
-        path: "about",
-        element: <About />,
+        path: "admin",
+        element: <Admin />,
       },
     ],
-  },
-  {
-    path: "admin",
-    element: <Admin />,
   },
 ]);
 
