@@ -12,3 +12,11 @@
     font-weight: inherit;
     margin: 0 0 0.5rem 0;
 }
+
+.buttonGroup > .button + .button {
+    margin-left: -1px;
+}
+
+.bold {
+    font-weight: 600;
+}

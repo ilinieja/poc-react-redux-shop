@@ -32,7 +32,7 @@ export function Product({ className, productId }: ProductProps) {
       <div className={styles.row}>
         <h2 className={styles.title}>{product.id}</h2>
         <span className={styles.subtitle ?? ""}>
-          {cartProduct?.quantity ?? ""}
+          {cartProduct?.quantity || ""}
         </span>
       </div>
       <span className={styles.text}>{product.description ?? ""}</span>
