@@ -1,3 +1,3 @@
-export default function Cart() {
+export function Cart() {
   return <>Cart</>;
 }
