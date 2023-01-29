@@ -2,7 +2,8 @@ import { RootState } from "./store";
 import { productsAdapter } from "./products.slice";
 import { rulesAdapter } from "./rules.slice";
 import { cartProductsAdapter } from "./cartProducts.slice";
-import { EntityId } from "@reduxjs/toolkit";
+import { createSelector, EntityId } from "@reduxjs/toolkit";
+import { checkoutProductQuantities } from "shared/checkout/checkout";
 
 export const getProductsState = (rootState: RootState) => rootState.products;
 export const getRulesState = (rootState: RootState) => rootState.rules;
@@ -24,3 +25,13 @@ export const selectRuleById = (id: EntityId) => (state: RootState) =>
 
 export const selectCartProductById = (id: EntityId) => (state: RootState) =>
   cartProductsSelectors.selectById(state, id);
+
+export const selectTotalPrice = createSelector(
+  [
+    cartProductsSelectors.selectEntities,
+    rulesSelectors.selectEntities,
+    productsSelectors.selectEntities,
+  ],
+  (cartProducts, rules, products) =>
+    checkoutProductQuantities(cartProducts, rules, products)
+);

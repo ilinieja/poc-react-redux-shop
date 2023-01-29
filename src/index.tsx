@@ -19,7 +19,7 @@ const router = createBrowserRouter([
     errorElement: <>No such page</>,
     children: [
       {
-        path: "shop",
+        path: "",
         element: <Shop />,
       },
       {
