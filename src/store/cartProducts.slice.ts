@@ -15,12 +15,12 @@ export const cartProductsSlice = createSlice({
         quantity: currentQuantity ? currentQuantity + 1 : 1,
       });
     },
-    cartProductRemoved: (
+    cartProductOneRemoved: (
       state,
       { payload: { productId, currentQuantity } }
     ) => {
-      if (!currentQuantity) {
-        cartProductsAdapter.removeOne(state, productId);
+      if (currentQuantity <= 1) {
+        return cartProductsAdapter.removeOne(state, productId);
       }
 
       return cartProductsAdapter.upsertOne(state, {
@@ -28,8 +28,12 @@ export const cartProductsSlice = createSlice({
         quantity: currentQuantity - 1,
       });
     },
+    cartProductAllRemoved: cartProductsAdapter.removeOne,
   },
 });
 
-export const { cartProductAdded, cartProductRemoved } =
-  cartProductsSlice.actions;
+export const {
+  cartProductAdded,
+  cartProductOneRemoved,
+  cartProductAllRemoved,
+} = cartProductsSlice.actions;

@@ -32,9 +32,9 @@ export function Product({ className, productId, isAdmin }: ProductProps) {
     <div className={classNames(styles.container, className)}>
       <div className={styles.row}>
         <h2 className={styles.title}>{product.id}</h2>
-        <span className={styles.subtitle ?? ""}>
-          {cartProduct?.quantity || ""}
-        </span>
+        {!isAdmin && (
+          <span className={styles.subtitle}>{cartProduct?.quantity || ""}</span>
+        )}
       </div>
       <span className={styles.text}>{product.description ?? ""}</span>
       {isAdmin ? (
