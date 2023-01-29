@@ -1,4 +1,4 @@
-import { PropsWithChildren, MouseEvent } from "react";
+import { PropsWithChildren, MouseEvent, ButtonHTMLAttributes } from "react";
 import classNames from "classnames";
 
 import styles from "./Button.module.css";
@@ -8,7 +8,7 @@ export enum ButtonVariants {
   outline = "outline",
 }
 
-export interface ButtonProps {
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   onClick: (event: MouseEvent<HTMLElement>) => void;
   className?: string;
   variant?: ButtonVariants;
@@ -19,6 +19,7 @@ export function Button({
   variant = ButtonVariants.outline,
   onClick,
   children,
+  type,
 }: PropsWithChildren<ButtonProps>) {
   return (
     <button
@@ -26,6 +27,7 @@ export function Button({
         [styles.filled]: variant === ButtonVariants.filled,
       })}
       onClick={onClick}
+      type={type}
     >
       {children}
     </button>
