@@ -29,7 +29,7 @@ export function ProductAdminActions({
 
       <div className={styles.row}>
         <Button className={styles.button} onClick={onRemove}>
-          Remove
+          Delete
         </Button>
         <Button
           className={classNames(styles.button, styles.widePadding)}
