@@ -6,6 +6,7 @@ import { productUpdated, productRemoved } from "store/products.slice";
 import { Button } from "shared/Button/Button";
 
 import styles from "./ProductAdminActions.module.css";
+import { useNavigate } from "react-router";
 
 export interface ProductAdminActionsProps {
   productId: EntityId;
@@ -17,9 +18,9 @@ export function ProductAdminActions({
   price,
 }: ProductAdminActionsProps) {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  const onUpdate = () =>
-    dispatch(productUpdated({ id: productId, changes: {} }));
+  const onUpdate = () => navigate(`edit/${productId}`);
   const onRemove = () => dispatch(productRemoved(productId));
 
   return (

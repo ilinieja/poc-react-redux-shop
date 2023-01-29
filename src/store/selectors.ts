@@ -19,7 +19,7 @@ export const cartProductsSelectors =
 
 export const selectProductById = (id: EntityId) => (state: RootState) =>
   productsSelectors.selectById(state, id);
-
+  
 export const selectRuleById = (id: EntityId) => (state: RootState) =>
   rulesSelectors.selectById(state, id);
 

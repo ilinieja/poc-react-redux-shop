@@ -11,6 +11,7 @@ import { Root } from "./pages/root/Root";
 import { Shop } from "./pages/shop/Shop";
 import { Cart } from "./pages/cart/Cart";
 import { Admin } from "./pages/admin/Admin";
+import { ProductEditModal } from "pages/admin/ProductEditModal/ProductEditModal";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,7 @@ const router = createBrowserRouter([
       {
         path: "admin",
         element: <Admin />,
+        children: [{ path: "edit/:productId", element: <ProductEditModal /> }],
       },
     ],
   },

@@ -18,7 +18,9 @@ export const rulesSlice = createSlice({
   name: "rules",
   initialState: prepopulatedState,
   reducers: {
-    ruleAdded: rulesAdapter.addOne,
+    ruleUpdated: rulesAdapter.upsertOne,
     ruleRemoved: rulesAdapter.removeOne,
   },
 });
+
+export const { ruleUpdated, ruleRemoved } = rulesSlice.actions;
