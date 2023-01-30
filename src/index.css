@@ -1,3 +1,5 @@
+@import "vars.css";
+
 /* Apply border-box for all elements. */
 html {
   box-sizing: border-box;
@@ -9,12 +11,11 @@ html {
   box-sizing: inherit;
 }
 
-/* Make body fill whole screen. */
-html {
+/* Make app root fill whole screen. */
+html,
+body,
+#root {
   height: 100%;
-}
-body {
-  min-height: 100%;
   margin: 0;
 }
 
@@ -23,5 +24,6 @@ body {
   font-family: 'Playfair Display', serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: var(--color-dark);
 }
 

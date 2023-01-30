@@ -1,5 +1,7 @@
-import { Product } from "./interfaces/product.interface";
-import { Rule } from "./interfaces/rule.interface";
+import { EntityId } from "@reduxjs/toolkit";
+
+import { Product } from "shared/interfaces/product.interface";
+import { Rule } from "shared/interfaces/rule.interface";
 
 /**
  * Map of product ids to rules for quick lookup,
@@ -9,7 +11,7 @@ import { Rule } from "./interfaces/rule.interface";
  * also possible by having mupltiple keys with the same value.
  */
 interface Rules {
-  [productId: string]: Rule;
+  [productId: string]: Rule | undefined;
 }
 
 /**
@@ -18,7 +20,7 @@ interface Rules {
  * but storing in the map is more efficient for lookups than array.
  */
 interface Products {
-  [productId: string]: Product;
+  [productId: EntityId]: Product | undefined;
 }
 
 export const RULES: Rules = {
@@ -34,11 +36,13 @@ export const PRODUCTS: Products = {
 };
 
 /**
- * Returns total price calculated for goods according to rules.
+ * Validates and prepares input goods string and feeds it to precessing function.
  *
- * Complexity is around O(n) - it iterates provided goods multiple times
- * to validate and build quantities map and also iterates quantities map,
- * but no nested loops and O(1) for map operations after that.
+ * Processing function is separated because the app logic works with product
+ * quantities and can feed them to processing instead of preparing goods string.
+ *
+ * Checkout function is needed only to comply with task definition and feed
+ * test data into the processing function.
  */
 export function checkout(goods: string, rules: Rules): number | Error {
   if (!goods.length) {
@@ -52,6 +56,22 @@ export function checkout(goods: string, rules: Rules): number | Error {
   }
 
   const productQuantities = countEntries(productIds);
+
+  return checkoutProductQuantities(productQuantities, rules, PRODUCTS);
+}
+
+/**
+ * Returns total price calculated for product quantities according to rules.
+ *
+ * Complexity is around O(n) - it iterates provided goods multiple times
+ * to validate and build quantities map and also iterates quantities map,
+ * but no nested loops and O(1) for map operations after that.
+ */
+export function checkoutProductQuantities(
+  productQuantities: EntryQuantities,
+  rules: Rules,
+  products: Products
+) {
   let total = 0;
 
   /**
@@ -63,19 +83,19 @@ export function checkout(goods: string, rules: Rules): number | Error {
     }
 
     // Check for special price and then again on the leftover recursively.
-    if (rules[productId] && quantity >= rules[productId].quantity) {
-      total += rules[productId].price;
-      addToTotal(productId, quantity - rules[productId].quantity);
+    if (rules[productId] && quantity >= rules[productId]!.quantity) {
+      total += rules[productId]!.price;
+      addToTotal(productId, quantity - rules[productId]!.quantity);
       return;
     }
 
     // Just add price x quantity if no special prices left to apply.
-    total += PRODUCTS[productId].price * quantity;
+    total += (products[productId]?.price ?? 0) * quantity;
   }
 
   for (let i = 0; i < Object.keys(productQuantities).length; i++) {
     const productId = Object.keys(productQuantities)[i];
-    const quantity = productQuantities[productId];
+    const quantity = productQuantities[productId]!.quantity;
 
     addToTotal(productId, quantity);
   }
@@ -85,7 +105,7 @@ export function checkout(goods: string, rules: Rules): number | Error {
 
 /** Map of entries to their quantites. */
 interface EntryQuantities {
-  [entry: string]: number;
+  [entry: EntityId]: { productId: EntityId; quantity: number } | undefined;
 }
 
 /** Counts provided entries. Returns entries to quantites map. */
@@ -93,10 +113,11 @@ function countEntries(entries: string[]): EntryQuantities {
   const entryQuantities: EntryQuantities = {};
 
   for (let i = 0; i < entries.length; i++) {
-    if (entryQuantities[entries[i]]) {
-      entryQuantities[entries[i]]++;
+    const productId = entries[i];
+    if (entryQuantities[productId]) {
+      entryQuantities[productId]!.quantity++;
     } else {
-      entryQuantities[entries[i]] = 1;
+      entryQuantities[productId] = { productId, quantity: 1 };
     }
   }
 

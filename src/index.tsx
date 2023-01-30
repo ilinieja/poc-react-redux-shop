@@ -10,8 +10,8 @@ import { store } from "./store/store";
 import { Root } from "./pages/root/Root";
 import { Shop } from "./pages/shop/Shop";
 import { Cart } from "./pages/cart/Cart";
-import { About } from "./pages/about/About";
 import { Admin } from "./pages/admin/Admin";
+import { ProductEditModal } from "pages/admin/ProductEditModal/ProductEditModal";
 
 const router = createBrowserRouter([
   {
@@ -20,7 +20,7 @@ const router = createBrowserRouter([
     errorElement: <>No such page</>,
     children: [
       {
-        path: "shop",
+        path: "",
         element: <Shop />,
       },
       {
@@ -28,14 +28,14 @@ const router = createBrowserRouter([
         element: <Cart />,
       },
       {
-        path: "about",
-        element: <About />,
+        path: "admin",
+        element: <Admin />,
+        children: [
+          { path: "edit/:productId", element: <ProductEditModal /> },
+          { path: "add", element: <ProductEditModal /> },
+        ],
       },
     ],
-  },
-  {
-    path: "admin",
-    element: <Admin />,
   },
 ]);
 

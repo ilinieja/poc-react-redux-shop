@@ -1,24 +1,33 @@
 @import "vars.css";
 
 .nav {
-    display: flex;
-    align-items: center;
-    padding: 8px 48px;
-    min-height: 100px;
-    background: var(--color-primary);
+  display: flex;
+  align-items: center;
+  padding: 8px 24px;
+  height: var(--nav-height);
+  background: var(--color-primary);
 }
 
 .logo {
-    text-decoration: none;
-    font-weight: 400;
-    color: var(--color-dark);
-    font-size: 1.6rem;
+  text-decoration: none;
+  font-weight: 400;
+  color: var(--color-dark);
+  font-size: 1.2rem;
 }
 
 .links {
-    margin-left: auto;
+  display: flex;
+  margin-left: auto;
+  gap: 12px;
+  align-items: center;
 }
 
-.link:not(:last-child) {
-    margin-right: 12px;
+@media only screen and (min-width: 768px) {
+    .nav {
+        padding: 8px 48px;
+    }
+
+    .logo {
+        font-size: 1.6rem;
+    }
 }

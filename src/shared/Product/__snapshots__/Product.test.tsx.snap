@@ -1,0 +1,475 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`admin mode renders bought product 1`] = `
+<body>
+  <div>
+    <div
+      class="container"
+    >
+      <div
+        class="row"
+      >
+        <h2
+          class="title"
+          data-testid="productLetterTitle"
+        >
+          C
+        </h2>
+      </div>
+      <span
+        class="text"
+      >
+        Awesome letter, I use it a lot and recommend
+      </span>
+      <div
+        class="container"
+      >
+        <h3
+          class="title"
+        >
+          20
+        </h3>
+        <div
+          class="row"
+        >
+          <button
+            class="button button"
+          >
+            Delete
+          </button>
+          <button
+            class="button button widePadding"
+          >
+            Edit
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`admin mode renders bought product with special offer 1`] = `
+<body>
+  <div>
+    <div
+      class="container"
+    >
+      <div
+        class="container badge"
+      >
+        <div
+          class="ribbon"
+        >
+          <h4
+            class="text"
+          >
+            3
+             for 
+            130
+          </h4>
+        </div>
+      </div>
+      <div
+        class="row"
+      >
+        <h2
+          class="title"
+          data-testid="productLetterTitle"
+        >
+          A
+        </h2>
+      </div>
+      <span
+        class="text"
+      >
+        Awesome letter, I use it a lot and recommend
+      </span>
+      <div
+        class="container"
+      >
+        <h3
+          class="title"
+        >
+          50
+        </h3>
+        <div
+          class="row"
+        >
+          <button
+            class="button button"
+          >
+            Delete
+          </button>
+          <button
+            class="button button widePadding"
+          >
+            Edit
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`admin mode renders not-bought product 1`] = `
+<body>
+  <div>
+    <div
+      class="container"
+    >
+      <div
+        class="row"
+      >
+        <h2
+          class="title"
+          data-testid="productLetterTitle"
+        >
+          X
+        </h2>
+      </div>
+      <span
+        class="text"
+      >
+        Awesome letter, I use it a lot and recommend
+      </span>
+      <div
+        class="container"
+      >
+        <h3
+          class="title"
+        >
+          15
+        </h3>
+        <div
+          class="row"
+        >
+          <button
+            class="button button"
+          >
+            Delete
+          </button>
+          <button
+            class="button button widePadding"
+          >
+            Edit
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`admin mode renders not-bought product with special offer 1`] = `
+<body>
+  <div>
+    <div
+      class="container"
+    >
+      <div
+        class="container badge"
+      >
+        <div
+          class="ribbon"
+        >
+          <h4
+            class="text"
+          >
+            2
+             for 
+            45
+          </h4>
+        </div>
+      </div>
+      <div
+        class="row"
+      >
+        <h2
+          class="title"
+          data-testid="productLetterTitle"
+        >
+          B
+        </h2>
+      </div>
+      <span
+        class="text"
+      >
+        Awesome letter, I use it a lot and recommend
+      </span>
+      <div
+        class="container"
+      >
+        <h3
+          class="title"
+        >
+          30
+        </h3>
+        <div
+          class="row"
+        >
+          <button
+            class="button button"
+          >
+            Delete
+          </button>
+          <button
+            class="button button widePadding"
+          >
+            Edit
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`default mode renders bought product 1`] = `
+<body>
+  <div>
+    <div
+      class="container"
+    >
+      <div
+        class="row"
+      >
+        <h2
+          class="title"
+          data-testid="productLetterTitle"
+        >
+          C
+        </h2>
+        <span
+          class="subtitle"
+          data-testid="productLetterBoughtQuantity"
+        >
+          5
+        </span>
+      </div>
+      <span
+        class="text"
+      >
+        Awesome letter, I use it a lot and recommend
+      </span>
+      <div
+        class="container"
+      >
+        <h3
+          class="title"
+        >
+          20
+        </h3>
+        <div
+          class="buttonGroup"
+        >
+          <button
+            class="button button"
+            data-testid="productDecrementButton"
+          >
+            -
+          </button>
+          <button
+            class="button button bold"
+            data-testid="productIncrementButton"
+          >
+            +
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`default mode renders bought product with special offer 1`] = `
+<body>
+  <div>
+    <div
+      class="container"
+    >
+      <div
+        class="container badge"
+      >
+        <div
+          class="ribbon"
+        >
+          <h4
+            class="text"
+          >
+            3
+             for 
+            130
+          </h4>
+        </div>
+      </div>
+      <div
+        class="row"
+      >
+        <h2
+          class="title"
+          data-testid="productLetterTitle"
+        >
+          A
+        </h2>
+        <span
+          class="subtitle"
+          data-testid="productLetterBoughtQuantity"
+        >
+          3
+        </span>
+      </div>
+      <span
+        class="text"
+      >
+        Awesome letter, I use it a lot and recommend
+      </span>
+      <div
+        class="container"
+      >
+        <h3
+          class="title"
+        >
+          50
+        </h3>
+        <div
+          class="buttonGroup"
+        >
+          <button
+            class="button button"
+            data-testid="productDecrementButton"
+          >
+            -
+          </button>
+          <button
+            class="button button bold"
+            data-testid="productIncrementButton"
+          >
+            +
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`default mode renders not-bought product 1`] = `
+<body>
+  <div>
+    <div
+      class="container"
+    >
+      <div
+        class="row"
+      >
+        <h2
+          class="title"
+          data-testid="productLetterTitle"
+        >
+          X
+        </h2>
+        <span
+          class="subtitle"
+          data-testid="productLetterBoughtQuantity"
+        />
+      </div>
+      <span
+        class="text"
+      >
+        Awesome letter, I use it a lot and recommend
+      </span>
+      <div
+        class="container"
+      >
+        <h3
+          class="title"
+        >
+          15
+        </h3>
+        <button
+          class="button button"
+          data-testid="productBuyButton"
+        >
+          Buy
+        </button>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`default mode renders not-bought product with special offer 1`] = `
+<body>
+  <div>
+    <div
+      class="container"
+    >
+      <div
+        class="container badge"
+      >
+        <div
+          class="ribbon"
+        >
+          <h4
+            class="text"
+          >
+            2
+             for 
+            45
+          </h4>
+        </div>
+      </div>
+      <div
+        class="row"
+      >
+        <h2
+          class="title"
+          data-testid="productLetterTitle"
+        >
+          B
+        </h2>
+        <span
+          class="subtitle"
+          data-testid="productLetterBoughtQuantity"
+        />
+      </div>
+      <span
+        class="text"
+      >
+        Awesome letter, I use it a lot and recommend
+      </span>
+      <div
+        class="container"
+      >
+        <h3
+          class="title"
+        >
+          30
+        </h3>
+        <button
+          class="button button"
+          data-testid="productBuyButton"
+        >
+          Buy
+        </button>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`default mode updates product quantity when it's decremented 1`] = `"3"`;
+
+exports[`default mode updates product quantity when it's decremented 2`] = `"2"`;
+
+exports[`default mode updates product quantity when it's incremented 1`] = `"3"`;
+
+exports[`default mode updates product quantity when it's incremented 2`] = `"4"`;
+
+exports[`doesn't render non-existing product 1`] = `
+<body>
+  <div />
+</body>
+`;
