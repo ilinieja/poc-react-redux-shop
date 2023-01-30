@@ -2,6 +2,7 @@ import { EntityId } from "@reduxjs/toolkit";
 import classNames from "classnames";
 import { useSelector } from "react-redux";
 import { selectCartProductById, selectProductById } from "store/selectors";
+import { TEST_IDS } from "testing/testing";
 
 import styles from "./Product.module.css";
 import { ProductActions } from "./ProductActions/ProductActions";
@@ -28,9 +29,16 @@ export function Product({ className, productId, isAdmin }: ProductProps) {
     <div className={classNames(styles.container, className)}>
       <ProductRuleBadge className={styles.badge} productId={productId} />
       <div className={styles.row}>
-        <h2 className={styles.title}>{product.id}</h2>
+        <h2 className={styles.title} data-testid={TEST_IDS.productLetterTitle}>
+          {product.id}
+        </h2>
         {!isAdmin && (
-          <span className={styles.subtitle}>{cartProduct?.quantity || ""}</span>
+          <span
+            className={styles.subtitle}
+            data-testid={TEST_IDS.productLetterBoughtQuantity}
+          >
+            {cartProduct?.quantity || ""}
+          </span>
         )}
       </div>
       <span className={styles.text}>{product.description ?? ""}</span>

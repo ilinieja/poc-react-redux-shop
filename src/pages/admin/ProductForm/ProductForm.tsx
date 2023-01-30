@@ -10,6 +10,7 @@ import {
 import { Button } from "shared/Button/Button";
 
 import styles from "./ProductForm.module.css";
+import { TEST_IDS } from "testing/testing";
 
 export interface FormFields {
   id: EntityId;
@@ -67,6 +68,7 @@ export function ProductForm({
               validate: isUniqueProductId,
             })}
             aria-invalid={errors.id ? "true" : "false"}
+            data-testid={TEST_IDS.productFormLetterInput}
           />
           {errors.id && (
             <div className={styles.error}>
@@ -90,6 +92,7 @@ export function ProductForm({
             defaultValue={product?.description}
             {...register("description", { maxLength: 70 })}
             aria-invalid={errors.description ? "true" : "false"}
+            data-testid={TEST_IDS.productFormDescriptionInput}
           />
           {errors.description && (
             <div className={styles.error}>
@@ -115,6 +118,7 @@ export function ProductForm({
               valueAsNumber: true,
             })}
             aria-invalid={errors.price ? "true" : "false"}
+            data-testid={TEST_IDS.productFormPriceInput}
           />
           {errors.price && (
             <div className={styles.error}>
@@ -147,6 +151,7 @@ export function ProductForm({
               aria-invalid={
                 errors.ruleQuantity || errors.rulePrice ? "true" : "false"
               }
+              data-testid={TEST_IDS.productFormRuleQuantityInput}
             />
             <span className={styles.note}>for</span>
             <input
@@ -164,6 +169,7 @@ export function ProductForm({
               aria-invalid={
                 errors.ruleQuantity || errors.rulePrice ? "true" : "false"
               }
+              data-testid={TEST_IDS.productFormRulePriceInput}
             />
           </div>
           {(errors.ruleQuantity || errors.rulePrice) && (
@@ -191,7 +197,11 @@ export function ProductForm({
         <Button onClick={onCancel} type="button">
           Cancel
         </Button>
-        <Button onClick={handleSubmit(onSubmit)} type="submit">
+        <Button
+          onClick={handleSubmit(onSubmit)}
+          type="submit"
+          data-testid={TEST_IDS.productFormSubmitButton}
+        >
           Save
         </Button>
       </div>
