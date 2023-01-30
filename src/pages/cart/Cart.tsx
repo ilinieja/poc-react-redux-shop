@@ -3,6 +3,7 @@ import { Button, ButtonVariants } from "shared/Button/Button";
 
 import { ProductsListing } from "shared/ProductsListing/ProductsListing";
 import { cartProductsSelectors, selectTotalPrice } from "store/selectors";
+import { TEST_IDS } from "testing/testing";
 
 import styles from "./Cart.module.css";
 
@@ -15,7 +16,10 @@ export function Cart() {
       {productIds.length ? (
         <div className={styles.row}>
           <h3 className={styles.title}>
-            Total price: <span className={styles.largeFont}>{totalPrice}</span>
+            Total price:{" "}
+            <span className={styles.largeFont} data-testid={TEST_IDS.cartTotal}>
+              {totalPrice}
+            </span>
           </h3>
           <Button
             variant={ButtonVariants.filled}

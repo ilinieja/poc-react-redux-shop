@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`removes product from listing when it's 1 and decremented 1`] = `
+Array [
+  "C",
+  "A",
+  "D",
+  "F",
+  "V",
+]
+`;
+
+exports[`removes product from listing when it's 1 and decremented 2`] = `
+Array [
+  "C",
+  "A",
+  "F",
+  "V",
+]
+`;
+
+exports[`renders bought products 1`] = `
+Array [
+  "C",
+  "A",
+  "D",
+  "F",
+  "V",
+]
+`;
+
+exports[`renders correct quantities of bought products 1`] = `
+Array [
+  "5",
+  "3",
+  "1",
+  "2",
+  "3",
+]
+`;
+
+exports[`renders correct total price 1`] = `"395"`;
+
+exports[`updates total price when product is decremented 1`] = `"395"`;
+
+exports[`updates total price when product is decremented 2`] = `"375"`;
+
+exports[`updates total price when product is incremented 1`] = `"395"`;
+
+exports[`updates total price when product is incremented 2`] = `"415"`;
+
+exports[`updates total price when special offer stops working 1`] = `"395"`;
+
+exports[`updates total price when special offer stops working 2`] = `"365"`;
