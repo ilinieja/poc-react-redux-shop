@@ -66,6 +66,13 @@ textarea[aria-invalid="true"] {
     border-color: var(--color-alert);
 }
 
+input[aria-disabled="true"],
+textarea[aria-disabled="true"] {
+    border-color: var(--color-dark);
+    color: var(--color-dark);
+    background: transparent;
+}
+
 .row {
     display: flex;
     align-items: flex-end;

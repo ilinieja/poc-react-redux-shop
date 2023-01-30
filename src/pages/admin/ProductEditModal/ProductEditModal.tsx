@@ -2,7 +2,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate, useParams } from "react-router";
 
 import { Modal } from "shared/Modal/Modal";
-import { productUpdated } from "store/products.slice";
+import { productAdded, productUpdated } from "store/products.slice";
 import { ruleRemoved, ruleUpdated } from "store/rules.slice";
 import { FormFields, ProductForm } from "../ProductForm/ProductForm";
 
@@ -22,14 +22,24 @@ export function ProductEditModal() {
     rulePrice,
     ruleQuantity,
   }: FormFields) => {
-    dispatch(productUpdated({ id, description, price }));
+    if (productId) {
+      dispatch(
+        productUpdated({ id: productId, changes: { description, price } })
+      );
+    } else {
+      dispatch(productAdded({ id, description, price }));
+    }
 
     if (rulePrice && ruleQuantity) {
       dispatch(
-        ruleUpdated({ productId: id, quantity: ruleQuantity, price: rulePrice })
+        ruleUpdated({
+          productId: productId || id,
+          quantity: ruleQuantity,
+          price: rulePrice,
+        })
       );
     } else {
-      dispatch(ruleRemoved(id));
+      dispatch(ruleRemoved(productId || id));
     }
 
     goBack();
