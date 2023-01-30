@@ -3,8 +3,9 @@
 .link {
     text-decoration: none;
     color: var(--color-dark);
-    font-size: 1.2rem;
+    font-size: 1rem;
     position: relative;
+    white-space: nowrap;
 }
 
 .link::after {
@@ -22,4 +23,11 @@
 .link:hover::after,
 .activeLink::after {
     opacity: 1;
+}
+
+
+@media only screen and (min-width: 768px) {
+    .link {
+        font-size: 1.2rem;
+    }
 }
