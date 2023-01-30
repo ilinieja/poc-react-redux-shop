@@ -36,6 +36,7 @@ export function ProductForm({
   const productIds = useSelector(productsSelectors.selectIds);
 
   const isUniqueProductId = (validatedProductId: EntityId) =>
+    !validatedProductId ||
     validatedProductId === productId ||
     !productIds.includes(validatedProductId);
   const requiredTogetherWith =
@@ -66,8 +67,10 @@ export function ProductForm({
               required: true,
               maxLength: 1,
               validate: isUniqueProductId,
+              disabled: !!product,
             })}
             aria-invalid={errors.id ? "true" : "false"}
+            aria-disabled={!!product}
             data-testid={TEST_IDS.productFormLetterInput}
           />
           {errors.id && (

@@ -20,7 +20,7 @@ export const productsSlice = createSlice({
   initialState: prepopulatedState,
   reducers: {
     productAdded: productsAdapter.addOne,
-    productUpdated: productsAdapter.upsertOne,
+    productUpdated: productsAdapter.updateOne,
     productRemoved: productsAdapter.removeOne,
   },
 });
