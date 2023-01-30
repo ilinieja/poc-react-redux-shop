@@ -57,6 +57,8 @@ textarea {
 .error {
     color: var(--color-alert);
     margin-top: 8px;
+    display: flex;
+    flex-direction: column;
 }
 
 input[aria-invalid="true"],

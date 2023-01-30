@@ -2,11 +2,13 @@ import { EntityId } from "@reduxjs/toolkit";
 import { useDispatch } from "react-redux";
 import classNames from "classnames";
 
-import { productUpdated, productRemoved } from "store/products.slice";
+import { productRemoved } from "store/products.slice";
 import { Button } from "shared/Button/Button";
 
 import styles from "./ProductAdminActions.module.css";
 import { useNavigate } from "react-router";
+import { ruleRemoved } from "store/rules.slice";
+import { cartProductAllRemoved } from "store/cartProducts.slice";
 
 export interface ProductAdminActionsProps {
   productId: EntityId;
@@ -20,8 +22,12 @@ export function ProductAdminActions({
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const onUpdate = () => navigate(`edit/${productId}`);
-  const onRemove = () => dispatch(productRemoved(productId));
+  const onUpdate = () => navigate(`edit/${encodeURIComponent(productId)}`);
+  const onRemove = () => {
+    dispatch(productRemoved(productId));
+    dispatch(ruleRemoved(productId));
+    dispatch(cartProductAllRemoved(productId));
+  };
 
   return (
     <div className={styles.container}>

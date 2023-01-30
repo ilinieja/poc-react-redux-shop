@@ -2,7 +2,10 @@ import { EntityId } from "@reduxjs/toolkit";
 import { useDispatch } from "react-redux";
 import classNames from "classnames";
 
-import { cartProductAdded, cartProductRemoved } from "store/cartProducts.slice";
+import {
+  cartProductAdded,
+  cartProductOneRemoved,
+} from "store/cartProducts.slice";
 import { Button } from "shared/Button/Button";
 
 import styles from "./ProductActions.module.css";
@@ -23,7 +26,7 @@ export function ProductActions({
   const onAdd = () =>
     dispatch(cartProductAdded({ productId, currentQuantity: quantity }));
   const onRemove = () =>
-    dispatch(cartProductRemoved({ productId, currentQuantity: quantity }));
+    dispatch(cartProductOneRemoved({ productId, currentQuantity: quantity }));
 
   return (
     <div className={styles.container}>

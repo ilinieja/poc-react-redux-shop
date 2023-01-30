@@ -1,0 +1,28 @@
+@import "vars.css";
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    width: 120px;
+    height: 120px;
+}
+
+.ribbon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    transform: rotate(45deg) translateY(-50%);
+    background-color: var(--color-primary);
+    height: 2rem;
+    width: 200%;
+    flex-shrink: 0;
+}
+
+.text {
+    text-align: center;
+    margin: 0 0 4px;
+    font-weight: 600;
+}

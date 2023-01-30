@@ -30,7 +30,10 @@ const router = createBrowserRouter([
       {
         path: "admin",
         element: <Admin />,
-        children: [{ path: "edit/:productId", element: <ProductEditModal /> }],
+        children: [
+          { path: "edit/:productId", element: <ProductEditModal /> },
+          { path: "add", element: <ProductEditModal /> },
+        ],
       },
     ],
   },

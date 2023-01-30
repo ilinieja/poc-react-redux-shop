@@ -1,15 +1,12 @@
 import { EntityId } from "@reduxjs/toolkit";
 import classNames from "classnames";
 import { useSelector } from "react-redux";
-import {
-  selectCartProductById,
-  selectProductById,
-  selectRuleById,
-} from "store/selectors";
+import { selectCartProductById, selectProductById } from "store/selectors";
 
 import styles from "./Product.module.css";
 import { ProductActions } from "./ProductActions/ProductActions";
 import { ProductAdminActions } from "./ProductAdminActions/ProductAdminActions";
+import { ProductRuleBadge } from "./ProductRuleBadge/ProductRuleBadge";
 
 export interface ProductProps {
   productId: EntityId;
@@ -19,7 +16,6 @@ export interface ProductProps {
 
 export function Product({ className, productId, isAdmin }: ProductProps) {
   const product = useSelector(selectProductById(productId));
-  const rule = useSelector(selectRuleById(productId));
   const cartProduct = useSelector(selectCartProductById(productId));
 
   if (!product) {
@@ -30,11 +26,12 @@ export function Product({ className, productId, isAdmin }: ProductProps) {
 
   return (
     <div className={classNames(styles.container, className)}>
+      <ProductRuleBadge className={styles.badge} productId={productId} />
       <div className={styles.row}>
         <h2 className={styles.title}>{product.id}</h2>
-        <span className={styles.subtitle ?? ""}>
-          {cartProduct?.quantity || ""}
-        </span>
+        {!isAdmin && (
+          <span className={styles.subtitle}>{cartProduct?.quantity || ""}</span>
+        )}
       </div>
       <span className={styles.text}>{product.description ?? ""}</span>
       {isAdmin ? (

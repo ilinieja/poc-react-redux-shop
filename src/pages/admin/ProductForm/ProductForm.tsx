@@ -1,6 +1,5 @@
 import { useSelector } from "react-redux";
 import { useForm, SubmitHandler } from "react-hook-form";
-import classNames from "classnames";
 import { EntityId } from "@reduxjs/toolkit";
 
 import {
@@ -61,6 +60,7 @@ export function ProductForm({
           <input
             className={styles.largeFont}
             defaultValue={product?.id}
+            placeholder="A"
             {...register("id", {
               required: true,
               maxLength: 1,
@@ -86,6 +86,7 @@ export function ProductForm({
         <label className={styles.label}>Description</label>
         <div className={styles.input}>
           <textarea
+            placeholder="Something smart about that letter..."
             defaultValue={product?.description}
             {...register("description", { maxLength: 70 })}
             aria-invalid={errors.description ? "true" : "false"}
@@ -106,7 +107,13 @@ export function ProductForm({
           <input
             type="number"
             defaultValue={product?.price}
-            {...register("price", { required: true, min: 1, max: 100000 })}
+            placeholder="5"
+            {...register("price", {
+              required: true,
+              min: 1,
+              max: 100000,
+              valueAsNumber: true,
+            })}
             aria-invalid={errors.price ? "true" : "false"}
           />
           {errors.price && (
@@ -128,12 +135,14 @@ export function ProductForm({
             <input
               type="number"
               defaultValue={rule?.quantity}
+              placeholder="X letters"
               {...register("ruleQuantity", {
                 min: 2,
                 max: 100000,
                 validate: {
                   required: requiredTogetherWith("rulePrice"),
                 },
+                valueAsNumber: true,
               })}
               aria-invalid={
                 errors.ruleQuantity || errors.rulePrice ? "true" : "false"
@@ -143,12 +152,14 @@ export function ProductForm({
             <input
               type="number"
               defaultValue={rule?.price}
+              placeholder="Y money"
               {...register("rulePrice", {
                 min: 1,
                 max: 100000,
                 validate: {
                   required: requiredTogetherWith("ruleQuantity"),
                 },
+                valueAsNumber: true,
               })}
               aria-invalid={
                 errors.ruleQuantity || errors.rulePrice ? "true" : "false"

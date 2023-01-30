@@ -2,8 +2,8 @@
 
 .button {
     box-shadow: none;
-    font: inherit;
-    background: none;
+    font-family: inherit;
+    background: transparent;
 
     padding: 4px 12px;
     border: 1px solid var(--color-primary);
@@ -13,6 +13,10 @@
     transition: background-color 0.4s;
 }
 
-.button:hover {
+.button:hover, .filled {
     background-color: var(--color-primary);
+}
+
+.filled:hover {
+    background-color: transparent;
 }
