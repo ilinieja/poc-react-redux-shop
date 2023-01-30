@@ -10,6 +10,7 @@ import {
 import styles from "./Product.module.css";
 import { ProductActions } from "./ProductActions/ProductActions";
 import { ProductAdminActions } from "./ProductAdminActions/ProductAdminActions";
+import { ProductRuleBadge } from "./ProductRuleBadge/ProductRuleBadge";
 
 export interface ProductProps {
   productId: EntityId;
@@ -19,7 +20,6 @@ export interface ProductProps {
 
 export function Product({ className, productId, isAdmin }: ProductProps) {
   const product = useSelector(selectProductById(productId));
-  const rule = useSelector(selectRuleById(productId));
   const cartProduct = useSelector(selectCartProductById(productId));
 
   if (!product) {
@@ -30,6 +30,7 @@ export function Product({ className, productId, isAdmin }: ProductProps) {
 
   return (
     <div className={classNames(styles.container, className)}>
+      <ProductRuleBadge className={styles.badge} productId={productId} />
       <div className={styles.row}>
         <h2 className={styles.title}>{product.id}</h2>
         {!isAdmin && (

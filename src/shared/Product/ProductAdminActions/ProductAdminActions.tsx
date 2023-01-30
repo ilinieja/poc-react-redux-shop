@@ -22,7 +22,7 @@ export function ProductAdminActions({
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const onUpdate = () => navigate(`edit/${productId}`);
+  const onUpdate = () => navigate(`edit/${encodeURIComponent(productId)}`);
   const onRemove = () => {
     dispatch(productRemoved(productId));
     dispatch(ruleRemoved(productId));

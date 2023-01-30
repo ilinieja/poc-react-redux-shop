@@ -22,7 +22,7 @@ export function ProductEditModal() {
     rulePrice,
     ruleQuantity,
   }: FormFields) => {
-    dispatch(productUpdated({ id, changes: { id, description, price } }));
+    dispatch(productUpdated({ id, description, price }));
 
     if (rulePrice && ruleQuantity) {
       dispatch(
