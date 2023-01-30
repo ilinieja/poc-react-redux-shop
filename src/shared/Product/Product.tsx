@@ -1,11 +1,7 @@
 import { EntityId } from "@reduxjs/toolkit";
 import classNames from "classnames";
 import { useSelector } from "react-redux";
-import {
-  selectCartProductById,
-  selectProductById,
-  selectRuleById,
-} from "store/selectors";
+import { selectCartProductById, selectProductById } from "store/selectors";
 
 import styles from "./Product.module.css";
 import { ProductActions } from "./ProductActions/ProductActions";
