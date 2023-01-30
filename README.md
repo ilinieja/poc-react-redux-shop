@@ -1,3 +1,17 @@
+# [Demo deployment](https://letters-shop.vercel.app/)
+The latest verion is deployed  [here](https://letters-shop.vercel.app/), it's updated on push to the `main` branch.
+
+There's also a quick [demo I recorded](https://youtu.be/WAf0bKGh010).
+
+# Solution comments
+The app uses React-Redux stack. It uses entity adapters to simplify working with stores and `react-hook-form` for product add/edit form.
+
+There are 3 entities used in the app - `Product`, `Rule` (defines special offers for products) and `CartProduct` (defines products that were put in the cart and their quantity).
+
+I did BDD to move fast and added some quick tests after the functionality was done (mostly snapshots for components with more or less complex logic going on).
+
+Initially I wanted to spin up json-server and implement real-world CRUD scenarios (getting entities from BE, writing updates to BE), but then decided to keep things simple for now (handling async operations adds a bit of work). 
+
 # The application
 
 ## Available Scripts
