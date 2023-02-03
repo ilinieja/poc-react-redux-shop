@@ -1,9 +1,20 @@
-# [Demo deployment](https://letters-shop.vercel.app/)
-The latest verion is deployed  [here](https://letters-shop.vercel.app/), it's updated on push to the `main` branch.
+# Letters shop
+POC React app recreating shop functionality for imagnary (but slightly familiar) items.
 
-There's also a quick [demo I recorded](https://youtu.be/WAf0bKGh010).
+Features:
+- [Redux store](https://redux-toolkit.js.org/api/configureStore)
+- [Redux entity adapters](https://redux-toolkit.js.org/api/createEntityAdapter)
+- [React Hook Form](https://react-hook-form.com/)
+- [Jest snapshot tests](https://jestjs.io/docs/snapshot-testing)
 
-# Solution comments
+# [Demo](https://letters-shop.vercel.app/)
+The latest verion is deployed [here](https://letters-shop.vercel.app/).
+
+![Demo](https://i.ibb.co/KFGVvrV/Screenshot-20230203-051824.png)
+![Demo](https://i.ibb.co/bvBHNZB/Screenshot-20230203-051903.png)
+![Demo](https://i.ibb.co/1n0P6k3/Screenshot-20230203-051938.png)
+
+# Implementation notes
 The app uses React-Redux stack. It uses entity adapters to simplify working with stores and `react-hook-form` for product add/edit form.
 
 There are 3 entities used in the app - `Product`, `Rule` (defines special offers for products) and `CartProduct` (defines products that were put in the cart and their quantity).
@@ -12,7 +23,8 @@ I did BDD to move fast and added some quick tests after the functionality was do
 
 Initially I wanted to spin up json-server and implement real-world CRUD scenarios (getting entities from BE, writing updates to BE), but then decided to keep things simple for now (handling async operations adds a bit of work). 
 
-# The application
+
+# Development
 
 ## Available Scripts
 
@@ -31,7 +43,7 @@ You will also see any lint errors in the console.
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-# Goals
+# Requirements
 
 ## Expected functionalities
 
