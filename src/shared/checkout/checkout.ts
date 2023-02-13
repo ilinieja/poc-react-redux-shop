@@ -93,8 +93,9 @@ export function checkoutProductQuantities(
     total += (products[productId]?.price ?? 0) * quantity;
   }
 
-  for (let i = 0; i < Object.keys(productQuantities).length; i++) {
-    const productId = Object.keys(productQuantities)[i];
+  const productQuatitiesKeys = Object.keys(productQuantities);
+  for (let i = 0; i < productQuatitiesKeys.length; i++) {
+    const productId = productQuatitiesKeys[i];
     const quantity = productQuantities[productId]!.quantity;
 
     addToTotal(productId, quantity);
