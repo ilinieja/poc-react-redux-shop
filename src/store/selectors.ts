@@ -1,17 +1,21 @@
 import { RootState } from "./store";
-import { productsAdapter } from "./products.slice";
+import { productsAdapter, ProductsSliceState } from "./products.slice";
 import { rulesAdapter } from "./rules.slice";
 import { cartProductsAdapter } from "./cartProducts.slice";
 import { createSelector, EntityId } from "@reduxjs/toolkit";
 import { checkoutProductQuantities } from "shared/checkout/checkout";
+import { getLoadingStateSelectors } from "./loading";
 
-export const getProductsState = (rootState: RootState) => rootState.products;
+export const getProductsState = (rootState: RootState) =>
+  rootState.products as ProductsSliceState;
 export const getRulesState = (rootState: RootState) => rootState.rules;
 export const getCartProductsState = (rootState: RootState) =>
   rootState.cartProducts;
 
-export const productsSelectors =
-  productsAdapter.getSelectors<RootState>(getProductsState);
+export const productsSelectors = {
+  ...productsAdapter.getSelectors<RootState>(getProductsState),
+  ...getLoadingStateSelectors(getProductsState),
+};
 export const rulesSelectors =
   rulesAdapter.getSelectors<RootState>(getRulesState);
 export const cartProductsSelectors =

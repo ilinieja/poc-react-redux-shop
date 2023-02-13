@@ -7,6 +7,7 @@ import { MemoryRouter } from "react-router-dom";
 
 import type { AppStore, RootState } from "../store/store";
 import { setupStore } from "../store/store";
+import { LoadingStatus } from "store/loading";
 
 // This type interface extends the default options for render from RTL, as well
 // as allows the user to specify other things such as initialState, store.
@@ -198,6 +199,8 @@ export const MOCK_STATE = {
         description: "Awesome letter, I use it a lot and recommend",
       },
     },
+    loadingStatus: LoadingStatus.success,
+    loadingError: null,
   },
   rules: {
     ids: ["A", "B"],
